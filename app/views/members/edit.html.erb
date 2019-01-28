@@ -1,0 +1,15 @@
+<%= form_for @member do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <% @member.posts.each do |e| %>
+    <%= f.fields_for :posts do |ff| %>
+      <%= ff.label :title %>
+      <%= ff.text_field :title %>
+    <% end %>
+  <% end %>
+  <%= f.fields_for :avatar do |ff| %>
+    <%= ff.label :icon %>
+    <%= ff.text_field :icon %>
+  <% end %>
+  <%= f.submit "Save" %>
+<% end %>
